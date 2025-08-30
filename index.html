@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDVA Humphreys Chapter - Inaugural Launch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 50%, #1e3a8a 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+            animation: twinkle 20s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .event-details {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .event-item {
+            text-align: center;
+        }
+
+        .event-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fbbf24;
+        }
+
+        .event-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-dark {
+            background: #1f2937;
+            color: white;
+        }
+
+        .section-light {
+            background: #f9fafb;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .mission-card {
+            background: linear-gradient(135deg, #1e40af, #1d4ed8);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+        }
+
+        .mission-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .vip-section {
+            background: linear-gradient(135deg, #374151, #1f2937);
+            color: white;
+            text-align: center;
+        }
+
+        .vip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .vip-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .vip-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fbbf24;
+        }
+
+        .vip-card .title {
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .timeline-item:nth-child(even) {
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .timeline-time {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1e40af;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-info h3 {
+            color: #fbbf24;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .event-details {
+                padding: 20px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .alliance-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px;
+            border: 2px solid #fbbf24;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>KDVA Humphreys Chapter</h1>
+                <p class="subtitle">Strengthening the ROK-U.S. Alliance at Camp Humphreys</p>
+                
+                <div class="alliance-badge">🇺🇸 🤝 🇰🇷 Alliance • Honor • Service • Community • Future</div>
+                
+                <div class="event-details">
+                    <h2 style="color: #fbbf24; margin-bottom: 30px;">📅 Inaugural Meeting</h2>
+                    <div class="event-grid">
+                        <div class="event-item">
+                            <h3>📅 Date</h3>
+                            <p>Wednesday, October 2, 2025</p>
+                        </div>
+                        <div class="event-item">
+                            <h3>⏰ Time</h3>
+                            <p>17:00 - 19:00</p>
+                        </div>
+                        <div class="event-item">
+                            <h3>📍 Venue</h3>
+                            <p>Riverbend<br>Camp Humphreys</p>
+                        </div>
+                        <div class="event-item">
+                            <h3>👥 Expected</h3>
+                            <p>~50 Attendees</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="cta-button">Join Our Community</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div style="font-size: 2rem;">⬇️</div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="container">
+            <h2>About KDVA Humphreys Chapter</h2>
+            <div class="about-grid">
+                <div class="mission-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To fortify the ROK-U.S. alliance through engaging activities including friendship events, educational outreach programs, and active community engagement within the Camp Humphreys community.</p>
+                </div>
+                <div>
+                    <h3 style="color: #1e40af; margin-bottom: 20px;">Who Can Join?</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">Membership is open to all who support the ROK-U.S. Alliance:</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ U.S. Service Members</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ DoD Civilians</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ Family Members</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ KATUSA Veterans</li>
+                        <li style="padding: 10px 0;">✅ Alliance Supporters</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h4>Alliance</h4>
+                    <p>Building bridges between cultures and communities</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🎖️</div>
+                    <h4>Honor</h4>
+                    <p>Respecting those who serve and sacrifice</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">💪</div>
+                    <h4>Service</h4>
+                    <p>Volunteering for the greater good</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🏘️</div>
+                    <h4>Community</h4>
+                    <p>Creating lasting connections</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🚀</div>
+                    <h4>Future</h4>
+                    <p>Inspiring next generation leaders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section vip-section">
+        <div class="container">
+            <h2>Distinguished Guests</h2>
+            <div class="vip-grid">
+                <div class="vip-card">
+                    <h3>GEN(Ret.) Robert B. "Abe" Abrams</h3>
+                    <p class="title">KDVA Chairman<br>Former Commander, UNC/CFC/USFK</p>
+                    <p>"This chapter will serve as a bridge, bringing together U.S. service members, veterans, and our Korean partners in friendship and shared purpose."</p>
+                </div>
+                <div class="vip-card">
+                    <h3>LTG(R) Yoon</h3>
+                    <p class="title">KDVA Korea Region President</p>
+                    <p>"This chapter will be a platform for sharing experiences, fostering friendship, and educating new generations about the value of our alliance."</p>
+                </div>
+                <div class="vip-card">
+                    <h3>Tim Miller</h3>
+                    <p class="title">KDVA Humphreys Chapter President</p>
+                    <p>"Our mission is simple but important: to connect people, share knowledge, and support the alliance community here at Camp Humphreys."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="container">
+            <h2>Event Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00 - 17:25</div>
+                    <div class="timeline-content">
+                        <h4>Registration & Welcome Reception</h4>
+                        <p>Arrival and welcome drinks</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">17:30 - 17:45</div>
+                    <div class="timeline-content">
+                        <h4>VIP Arrival & Congratulatory Remarks</h4>
+                        <p>Distinguished guests share their vision for the chapter</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">17:45 - 17:55</div>
+                    <div class="timeline-content">
+                        <h4>Chapter Introduction</h4>
+                        <p>Learn about our mission, activities, and membership benefits</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">17:55 - 18:05</div>
+                    <div class="timeline-content">
+                        <h4>Q&A Session</h4>
+                        <p>Your questions and feedback</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">18:05 - 19:00</div>
+                    <div class="timeline-content">
+                        <h4>Dinner & Networking</h4>
+                        <p>Join us for dinner and connect with fellow members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <h2>Our Activities</h2>
+            <div class="about-grid">
+                <div>
+                    <h3 style="color: #fbbf24; margin-bottom: 20px;">🎯 Regular Programs</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">📅 Quarterly informal meetings and discussion sessions</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">🎓 Educational outreach events</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">🎉 Alliance commemorative events</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">👋 Welcome receptions for newcomers</li>
+                        <li style="padding: 15px 0;">👨‍👩‍👧‍👦 Family-friendly community events</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #fbbf24; margin-bottom: 20px;">🌟 Special Events</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">🇺🇸 U.S. Independence Day celebrations</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">🇰🇷 Korea Memorial Day commemorations</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">🎆 Year-end alliance gatherings</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid #374151;">🏆 Alliance awards recognition</li>
+                        <li style="padding: 15px 0;">📚 Korean cultural experience programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2>Join Us Today</h2>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Tim Miller</strong><br>
+                President, KDVA Humphreys Chapter</p>
+                <p>📞 <strong>Phone:</strong> 010-2472-5248<br>
+                📧 <strong>Email:</strong> tim.miller1021@yahoo.com</p>
+                
+                <div style="margin: 30px 0;">
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;"><strong>Why Join KDVA Humphreys Chapter?</strong></p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left;">
+                        <div>✅ No membership dues</div>
+                        <div>✅ Networking opportunities</div>
+                        <div>✅ Cultural exchange</div>
+                        <div>✅ Professional development</div>
+                        <div>✅ Community service</div>
+                        <div>✅ Alliance education</div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; font-style: italic;">
+                    "Creating personal connections that last beyond your time in Korea"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KDVA Humphreys Chapter. Strengthening the ROK-U.S. Alliance.</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Alliance • Honor • Service • Community • Future</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items for scroll animations
+        document.querySelectorAll('.timeline-item, .value-item, .vip-card').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Add click tracking for the CTA button
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            console.log('CTA button clicked - User interested in joining');
+        });
+    </script>
+</body>
+</html>
